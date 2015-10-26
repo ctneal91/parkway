@@ -1,11 +1,12 @@
 require "test_helper"
 
-class AuthenticationTest < Capybara::Rails::TestCase
-  test "user can sign_in" do
+class AuthenticationTests < Capybara::Rails::TestCase
+  test "user can sign in and sign out" do
     nancy = User.create! first_name: "Nancy",
                          last_name: "Pevato",
                          email: "nancy.pevato@gotchabrian.com",
                          password: "Tfortaco"
+    # sign in part
     visit sign_in_path
     assert_content page, "Please sign in"
 
@@ -14,5 +15,10 @@ class AuthenticationTest < Capybara::Rails::TestCase
     click_button 'Sign In'
 
     assert_content page, 'Nancy'
+
+    # sign out part
+    click_link 'Sign Out'
+
+    refute_content page, 'Nancy'
   end
 end
