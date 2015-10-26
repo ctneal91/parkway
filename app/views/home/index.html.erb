@@ -1,2 +1,7 @@
-<h1><%= @current_user.first_name %></h1>
+<% if @current_user.present? %>
+  <h1><%= @current_user.first_name %></h1>
+  <div class="btn">
+    <%= link_to 'Sign Out', sign_out_path, method: :delete %>
+  </div>
+<% end %>
 <h2> Home </h2>
