@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  get 'patients/all' => 'patients#index', as: :patients
-  get 'patients/:id' => 'patients#show', as: :patient
-  get 'patients/new' => 'patients#new'
-  post 'patients' => 'patients#create'
-  get 'patients/:id/edit' => 'patients#edit'
-  patch 'patients/:id' => 'patients#update'
+  get 'users/all' => 'users#index', as: :users
+  get 'users/:id' => 'users#show', as: :user
+  get 'users/new' => 'users#new'
+  post 'users' => 'users#create'
+  get 'users/:id/edit' => 'users#edit'
+  patch 'users/:id' => 'users#update'
 
   get 'sign_in' => 'sessions#new', as: :sign_in
   post 'sign_in' => 'sessions#create'
