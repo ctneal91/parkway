@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'visits#new'
+
+  get 'visits/:id' => 'visits#show', as: :visit
+  get 'visits' => 'visits#index', as: :visits
+  post 'visit' => 'visits#create'
 
   get 'users/:id' => 'users#show', as: :user
 
