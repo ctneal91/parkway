@@ -1,2 +1,10 @@
-<h1>Patients#new</h1>
-<p>Find me in app/views/patients/new.html.erb</p>
+<h1>Welcome to TMC Parkway</h1>
+
+<%= simple_form_for @user do |u| %>
+  <%= u.input :first_name, label: false, placeholder: 'First Name' %>
+  <%= u.input :last_name, label: false, placeholder: 'Last Name' %>
+  <%= u.input :email, label: false, placeholder: 'Email' %>
+  <%= u.input :password, label: false, placeholder: 'Password' %>
+  <%= u.input :password_confirmation, label: false, placeholder: 'Password Confirmation' %>
+  <%= u.submit 'Sign Up' %>
+<% end %>

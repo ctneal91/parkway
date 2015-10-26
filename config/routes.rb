@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  get 'users/all' => 'users#index', as: :users
   get 'users/:id' => 'users#show', as: :user
-  get 'users/new' => 'users#new'
-  post 'users' => 'users#create'
+
+  get 'sign_up' => 'users#new', as: :sign_up
+  post 'sign_up' => 'users#create', as: :users
   get 'users/:id/edit' => 'users#edit'
   patch 'users/:id' => 'users#update'
 
