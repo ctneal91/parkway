@@ -1,11 +1,12 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
   name: MyString
   hospital_id: 1
-  building-lot_id: 1
+  building_lot_id: 1
 
 two:
   name: MyString
   hospital_id: 1
-  building-lot_id: 1
+  building_lot_id: 1

@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026154645) do
+ActiveRecord::Schema.define(version: 20151026163927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "appointments", force: :cascade do |t|
-    t.date     "date"
-    t.time     "time"
-    t.integer  "building_id"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "room_id"
-  end
 
   create_table "building_lots", force: :cascade do |t|
     t.integer  "building_id"
@@ -36,16 +26,18 @@ ActiveRecord::Schema.define(version: 20151026154645) do
   create_table "buildings", force: :cascade do |t|
     t.string   "name"
     t.integer  "hospital_id"
-    t.integer  "building_lot_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "lot_id"
+    t.integer  "building_lot_id"
   end
 
   create_table "lots", force: :cascade do |t|
     t.string   "name"
-    t.integer  "building_lot_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "building_id"
+    t.integer  "building_lot_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -62,6 +54,16 @@ ActiveRecord::Schema.define(version: 20151026154645) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.date     "date"
+    t.time     "time"
+    t.integer  "building_id"
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
