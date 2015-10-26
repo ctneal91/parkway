@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  root 'home#index'
 
-  get 'patients/index'
+  get 'patients/all' => 'patients#index', as: :patients
+  get 'patients/:id' => 'patients#show', as: :patient
+  get 'patients/new' => 'patients#new'
+  post 'patients' => 'patients#create'
+  get 'patients/:id/edit' => 'patients#edit'
+  patch 'patients/:id' => 'patients#update'
 
-  get 'patients/show'
-
-  get 'patients/new'
-
-  get 'patients/edit'
-
-  get 'sessions/new'
+  get 'sign_in' => 'sessions#new', as: :sign_in
+  post 'sign_in' => 'sessions#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
